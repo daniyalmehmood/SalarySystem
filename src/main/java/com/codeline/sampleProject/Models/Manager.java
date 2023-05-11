@@ -16,16 +16,18 @@ public class Manager extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-@OneToOne(cascade = CascadeType.ALL)
-@JoinColumn(name = "employee_id", referencedColumnName = "id")
+
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL)
     Employee employee;
-@OneToMany
+
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    @OneToMany(cascade = CascadeType.ALL)
     List<Employee> team;
 
     String department;
 
     String teamName;
-
 
 
 }
