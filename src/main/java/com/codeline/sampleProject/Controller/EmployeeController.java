@@ -4,13 +4,20 @@ import com.codeline.sampleProject.Models.Employee;
 import com.codeline.sampleProject.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
-@Controller
+@RestController
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
+
+    @RequestMapping("employee/create")
+    public void saveEmployee () {
+        createEmployee();
+    }
 
     public void createEmployee() {
 

@@ -4,10 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
@@ -19,9 +16,10 @@ public class Manager extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-
+@OneToOne(cascade = CascadeType.ALL)
+@JoinColumn(name = "employee_id", referencedColumnName = "id")
     Employee employee;
-
+@OneToMany
     List<Employee> team;
 
     String department;
